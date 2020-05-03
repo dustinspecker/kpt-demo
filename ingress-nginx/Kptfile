@@ -2,6 +2,13 @@ apiVersion: kpt.dev/v1alpha1
 kind: Kptfile
 metadata:
     name: kpt-demo
+upstream:
+    type: git
+    git:
+        commit: b68839118f1f3ff9a2ea714cdc92ca5c8dd6d4ea
+        repo: https://github.com/kubernetes/ingress-nginx
+        directory: /deploy/static/provider/baremetal
+        ref: controller-0.31.1
 packageMetadata:
     shortDescription: sample description
 dependencies:
