@@ -1,0 +1,4 @@
+resources:
+- ingress-nginx/deploy.yaml
+patchesStrategicMerge:
+- patches/patch-deployment.yaml
