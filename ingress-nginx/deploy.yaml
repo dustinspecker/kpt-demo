@@ -16,8 +16,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
 ---
 apiVersion: v1 # Source: ingress-nginx/templates/controller-configmap.yaml
 kind: ConfigMap
@@ -29,9 +29,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
-data:
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
 ---
 apiVersion: rbac.authorization.k8s.io/v1 # Source: ingress-nginx/templates/clusterrole.yaml
 kind: ClusterRole
@@ -42,8 +41,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
 rules:
 - resources:
   - configmaps
@@ -112,8 +111,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
 roleRef:
   name: ingress-nginx
   kind: ClusterRole
@@ -133,8 +132,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
 rules:
 - resources:
   - namespaces
@@ -227,8 +226,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
 roleRef:
   name: ingress-nginx
   kind: Role
@@ -248,8 +247,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
 spec:
   type: ClusterIP
   selector:
@@ -271,8 +270,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
 spec:
   selector:
     matchLabels:
@@ -291,7 +290,7 @@ spec:
       serviceAccountName: ingress-nginx
       containers:
       - name: controller
-        image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.31.1
+        image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.32.0
         args:
         - /nginx-ingress-controller
         - --election-id=ingress-controller-leader
@@ -378,8 +377,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
 webhooks:
 - name: validate.nginx.ingress.kubernetes.io
   clientConfig:
@@ -410,8 +409,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
   annotations:
     helm.sh/hook: pre-install,pre-upgrade,post-install,post-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
@@ -434,8 +433,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
   annotations:
     helm.sh/hook: pre-install,pre-upgrade,post-install,post-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
@@ -458,8 +457,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
   annotations:
     helm.sh/hook: pre-install,pre-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
@@ -472,14 +471,14 @@ spec:
         app.kubernetes.io/instance: ingress-nginx
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: ingress-nginx
-        app.kubernetes.io/version: 0.31.1
-        helm.sh/chart: ingress-nginx-2.0.1
+        app.kubernetes.io/version: 0.32.0
+        helm.sh/chart: ingress-nginx-2.0.3
     spec:
       restartPolicy: OnFailure
       serviceAccountName: ingress-nginx-admission
       containers:
       - name: create
-        image: jettech/kube-webhook-certgen:v1.0.0
+        image: jettech/kube-webhook-certgen:v1.2.0
         args:
         - create
         - --host=ingress-nginx-controller-admission,ingress-nginx-controller-admission.ingress-nginx.svc
@@ -500,8 +499,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
   annotations:
     helm.sh/hook: post-install,post-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
@@ -514,14 +513,14 @@ spec:
         app.kubernetes.io/instance: ingress-nginx
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: ingress-nginx
-        app.kubernetes.io/version: 0.31.1
-        helm.sh/chart: ingress-nginx-2.0.1
+        app.kubernetes.io/version: 0.32.0
+        helm.sh/chart: ingress-nginx-2.0.3
     spec:
       restartPolicy: OnFailure
       serviceAccountName: ingress-nginx-admission
       containers:
       - name: patch
-        image: jettech/kube-webhook-certgen:v1.0.0
+        image: jettech/kube-webhook-certgen:v1.2.0
         args:
         - patch
         - --webhook-name=ingress-nginx-admission
@@ -529,7 +528,6 @@ spec:
         - --patch-mutating=false
         - --secret-name=ingress-nginx-admission
         - --patch-failure-policy=Fail
-        imagePullPolicy:
       securityContext:
         runAsNonRoot: true
         runAsUser: 2000
@@ -544,8 +542,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
   annotations:
     helm.sh/hook: pre-install,pre-upgrade,post-install,post-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
@@ -568,8 +566,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
   annotations:
     helm.sh/hook: pre-install,pre-upgrade,post-install,post-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
@@ -592,8 +590,8 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
+    app.kubernetes.io/version: 0.32.0
+    helm.sh/chart: ingress-nginx-2.0.3
   annotations:
     helm.sh/hook: pre-install,pre-upgrade,post-install,post-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded

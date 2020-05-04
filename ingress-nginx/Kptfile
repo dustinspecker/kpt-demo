@@ -5,10 +5,10 @@ metadata:
 upstream:
     type: git
     git:
-        commit: b68839118f1f3ff9a2ea714cdc92ca5c8dd6d4ea
+        commit: 446845114c6ef610c04a95b339c75bb69ab01295
         repo: https://github.com/kubernetes/ingress-nginx
         directory: /deploy/static/provider/baremetal
-        ref: controller-0.31.1
+        ref: controller-0.32.0
 packageMetadata:
     shortDescription: sample description
 dependencies:
