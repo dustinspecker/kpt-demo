@@ -6,8 +6,7 @@ metadata:
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/name: ingress-nginx
 ---
-# Source: ingress-nginx/templates/controller-serviceaccount.yaml
-apiVersion: v1
+apiVersion: v1 # Source: ingress-nginx/templates/controller-serviceaccount.yaml
 kind: ServiceAccount
 metadata:
   name: ingress-nginx
@@ -20,8 +19,7 @@ metadata:
     app.kubernetes.io/version: 0.31.1
     helm.sh/chart: ingress-nginx-2.0.1
 ---
-# Source: ingress-nginx/templates/controller-configmap.yaml
-apiVersion: v1
+apiVersion: v1 # Source: ingress-nginx/templates/controller-configmap.yaml
 kind: ConfigMap
 metadata:
   name: ingress-nginx-controller
@@ -35,8 +33,7 @@ metadata:
     helm.sh/chart: ingress-nginx-2.0.1
 data:
 ---
-# Source: ingress-nginx/templates/clusterrole.yaml
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1 # Source: ingress-nginx/templates/clusterrole.yaml
 kind: ClusterRole
 metadata:
   name: ingress-nginx
@@ -106,8 +103,7 @@ rules:
   - list
   - watch
 ---
-# Source: ingress-nginx/templates/clusterrolebinding.yaml
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1 # Source: ingress-nginx/templates/clusterrolebinding.yaml
 kind: ClusterRoleBinding
 metadata:
   name: ingress-nginx
@@ -127,8 +123,7 @@ subjects:
   namespace: ingress-nginx
   kind: ServiceAccount
 ---
-# Source: ingress-nginx/templates/controller-role.yaml
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1 # Source: ingress-nginx/templates/controller-role.yaml
 kind: Role
 metadata:
   name: ingress-nginx
@@ -222,8 +217,7 @@ rules:
   - create
   - patch
 ---
-# Source: ingress-nginx/templates/controller-rolebinding.yaml
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1 # Source: ingress-nginx/templates/controller-rolebinding.yaml
 kind: RoleBinding
 metadata:
   name: ingress-nginx
@@ -244,8 +238,7 @@ subjects:
   namespace: ingress-nginx
   kind: ServiceAccount
 ---
-# Source: ingress-nginx/templates/controller-service-webhook.yaml
-apiVersion: v1
+apiVersion: v1 # Source: ingress-nginx/templates/controller-service-webhook.yaml
 kind: Service
 metadata:
   name: ingress-nginx-controller-admission
@@ -268,37 +261,7 @@ spec:
     port: 443
     targetPort: webhook
 ---
-# Source: ingress-nginx/templates/controller-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: ingress-nginx-controller
-  namespace: ingress-nginx
-  labels:
-    app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: ingress-nginx
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/version: 0.31.1
-    helm.sh/chart: ingress-nginx-2.0.1
-spec:
-  type: NodePort
-  selector:
-    app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: ingress-nginx
-    app.kubernetes.io/name: ingress-nginx
-  ports:
-  - name: http
-    protocol: TCP
-    port: 80
-    targetPort: http
-  - name: https
-    protocol: TCP
-    port: 443
-    targetPort: https
----
-# Source: ingress-nginx/templates/controller-deployment.yaml
-apiVersion: apps/v1
+apiVersion: apps/v1 # Source: ingress-nginx/templates/controller-deployment.yaml
 kind: Deployment
 metadata:
   name: ingress-nginx-controller
@@ -405,8 +368,7 @@ spec:
   minReadySeconds: 0
   revisionHistoryLimit: 10
 ---
-# Source: ingress-nginx/templates/admission-webhooks/validating-webhook.yaml
-apiVersion: admissionregistration.k8s.io/v1beta1
+apiVersion: admissionregistration.k8s.io/v1beta1 # Source: ingress-nginx/templates/admission-webhooks/validating-webhook.yaml
 kind: ValidatingWebhookConfiguration
 metadata:
   name: ingress-nginx-admission
@@ -438,8 +400,7 @@ webhooks:
     - CREATE
     - UPDATE
 ---
-# Source: ingress-nginx/templates/admission-webhooks/job-patch/clusterrole.yaml
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1 # Source: ingress-nginx/templates/admission-webhooks/job-patch/clusterrole.yaml
 kind: ClusterRole
 metadata:
   name: ingress-nginx-admission
@@ -463,8 +424,7 @@ rules:
   - get
   - update
 ---
-# Source: ingress-nginx/templates/admission-webhooks/job-patch/clusterrolebinding.yaml
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1 # Source: ingress-nginx/templates/admission-webhooks/job-patch/clusterrolebinding.yaml
 kind: ClusterRoleBinding
 metadata:
   name: ingress-nginx-admission
@@ -488,8 +448,7 @@ subjects:
   namespace: ingress-nginx
   kind: ServiceAccount
 ---
-# Source: ingress-nginx/templates/admission-webhooks/job-patch/job-createSecret.yaml
-apiVersion: batch/v1
+apiVersion: batch/v1 # Source: ingress-nginx/templates/admission-webhooks/job-patch/job-createSecret.yaml
 kind: Job
 metadata:
   name: ingress-nginx-admission-create
@@ -531,8 +490,7 @@ spec:
         runAsNonRoot: true
         runAsUser: 2000
 ---
-# Source: ingress-nginx/templates/admission-webhooks/job-patch/job-patchWebhook.yaml
-apiVersion: batch/v1
+apiVersion: batch/v1 # Source: ingress-nginx/templates/admission-webhooks/job-patch/job-patchWebhook.yaml
 kind: Job
 metadata:
   name: ingress-nginx-admission-patch
@@ -576,8 +534,7 @@ spec:
         runAsNonRoot: true
         runAsUser: 2000
 ---
-# Source: ingress-nginx/templates/admission-webhooks/job-patch/role.yaml
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1 # Source: ingress-nginx/templates/admission-webhooks/job-patch/role.yaml
 kind: Role
 metadata:
   name: ingress-nginx-admission
@@ -601,8 +558,7 @@ rules:
   - get
   - create
 ---
-# Source: ingress-nginx/templates/admission-webhooks/job-patch/rolebinding.yaml
-apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1 # Source: ingress-nginx/templates/admission-webhooks/job-patch/rolebinding.yaml
 kind: RoleBinding
 metadata:
   name: ingress-nginx-admission
@@ -626,8 +582,7 @@ subjects:
   namespace: ingress-nginx
   kind: ServiceAccount
 ---
-# Source: ingress-nginx/templates/admission-webhooks/job-patch/serviceaccount.yaml
-apiVersion: v1
+apiVersion: v1 # Source: ingress-nginx/templates/admission-webhooks/job-patch/serviceaccount.yaml
 kind: ServiceAccount
 metadata:
   name: ingress-nginx-admission

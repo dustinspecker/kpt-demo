@@ -1,0 +1,11 @@
+piVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    config.kubernetes.io/function: |
+      container:
+        image: dustinspecker/kpt-remove-resource:latest
+data:
+  kind: Service
+  name: ingress-nginx-controller
+  namespace: ingress-nginx
